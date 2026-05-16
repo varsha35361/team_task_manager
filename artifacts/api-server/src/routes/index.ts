@@ -3,6 +3,7 @@ import { db, commentsTable } from "@workspace/db";
 import { eq } from "drizzle-orm";
 import { DeleteCommentParams } from "@workspace/api-zod";
 import healthRouter from "./health";
+import authRouter from "./auth";
 import projectsRouter from "./projects";
 import membersRouter from "./members";
 import tasksRouter from "./tasks";
@@ -13,6 +14,7 @@ import activityRouter from "./activity";
 const router: IRouter = Router();
 
 router.use(healthRouter);
+router.use(authRouter);
 router.use("/projects", projectsRouter);
 router.use("/members", membersRouter);
 router.use("/tasks", tasksRouter);
